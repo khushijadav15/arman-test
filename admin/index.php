@@ -113,7 +113,7 @@
                                             <th><?php echo $item['id'] ;?></th>
                                             <td><?php echo $item['file_name'] ;?></td>
                                             <td><?php echo $item['file_type'] ;?></td>
-                                            <td><a href=""><span class="badge badge-danger">Delete</span></a>
+                                            <td><a href="slider_delete.php?file_id=<?php echo $item['id'] ;?>"><span class="badge badge-danger">Delete</span></a>
                                             </td>
                                             
                                         </tr>

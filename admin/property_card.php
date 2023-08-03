@@ -98,23 +98,26 @@
                                         <tr>
                                             <th>1</th>
                                             <td>Kolor Tea Shirt For Man</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a href=""><span class="badge badge-danger">Delete</span></a>
+                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a
+                                                    href=""><span class="badge badge-danger">Delete</span></a>
                                             </td>
-                                            
+
                                         </tr>
                                         <tr>
                                             <th>2</th>
                                             <td>Kolor Tea Shirt For Women</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a href=""><span class="badge badge-danger">Delete</span></a>
+                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a
+                                                    href=""><span class="badge badge-danger">Delete</span></a>
                                             </td>
-                                          
+
                                         </tr>
                                         <tr>
                                             <th>3</th>
                                             <td>Blue Backpack For Baby</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a href=""><span class="badge badge-danger">Delete</span></a>
+                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a
+                                                    href=""><span class="badge badge-danger">Delete</span></a>
                                             </td>
-                                           
+
                                         </tr>
                                     </tbody>
                                 </table>
@@ -130,7 +133,7 @@
         ***********************************-->
 
 
-        
+
 
         <!--**********************************
            Support ticket button start

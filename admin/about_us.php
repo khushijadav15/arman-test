@@ -90,31 +90,30 @@
                                     <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th> Slide Name</th>
-                                            <th>Action</th>
+                                            <th>Image</th>
+                                            <th>Description</th>
+                                            <th>Operation</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <th>1</th>
-                                            <td>Kolor Tea Shirt For Man</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a href=""><span class="badge badge-danger">Delete</span></a>
+                                            <td>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Upload</span>
+                                                    </div>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input">
+                                                        <label class="custom-file-label">Choose file</label>
+                                                    </div>
+                                                </div>
                                             </td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th>2</th>
-                                            <td>Kolor Tea Shirt For Women</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a href=""><span class="badge badge-danger">Delete</span></a>
+                                            <td>Description</td>
+                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a
+                                                    href=""><span class="badge badge-danger">Delete</span></a>
                                             </td>
-                                          
-                                        </tr>
-                                        <tr>
-                                            <th>3</th>
-                                            <td>Blue Backpack For Baby</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a href=""><span class="badge badge-danger">Delete</span></a>
-                                            </td>
-                                           
+
                                         </tr>
                                     </tbody>
                                 </table>
@@ -130,7 +129,7 @@
         ***********************************-->
 
 
-        
+
 
         <!--**********************************
            Support ticket button start

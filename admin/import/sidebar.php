@@ -1,11 +1,10 @@
-
 <?php
 
 session_start();
 //check user is logged or not
 if (!isset($_SESSION['user_id'])) {
- header('Location: login.php');
- exit();
+    header('Location: login.php');
+    exit();
 
 }
 
@@ -18,15 +17,15 @@ if (!isset($_SESSION['user_id'])) {
                         class="nav-text">Slider</span></a>
 
             </li>
-            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                        class="icon icon-app-store"></i><span class="nav-text">About Us</span></a>
+            <li><a class="has-arrow" href="about_us.php" aria-expanded="false"><i class="icon icon-app-store"></i><span
+                        class="nav-text">About Us</span></a>
             </li>
-            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+            <li><a class="has-arrow" href="property_card.php" aria-expanded="false"><i
                         class="icon icon-app-store"></i><span class="nav-text">Proporties Card</span></a>
             </li>
 
-            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                        class="icon icon-app-store"></i><span class="nav-text">Form Data</span></a>
+            <li><a class="has-arrow" href="form_data.php" aria-expanded="false"><i class="icon icon-app-store"></i><span
+                        class="nav-text">Form Data</span></a>
             </li>
 
         </ul>

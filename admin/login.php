@@ -18,7 +18,7 @@ if (isset($_POST['login'])) {
 
   // Prepare and execute the SQL statement
   $cmd = $con->prepare("SELECT id as user_id,password FROM tbl_admin_user WHERE username = ? AND password = ? ");
-  $cmd->bind_param("ss", $username,$password);
+  $cmd->bind_param("ss", $username, $password);
   $cmd->execute();
   $ex = $cmd->get_result();
 

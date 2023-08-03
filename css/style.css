@@ -55,6 +55,13 @@ swiper-slide img {
     object-fit: cover;
 }
 
+swiper-slide video {
+    display: block;
+    width: 80%;
+    height: 500px;
+    object-fit: cover;
+}
+
 .about-us {
     height: 70vh;
 }

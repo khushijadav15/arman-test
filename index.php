@@ -19,7 +19,7 @@
 
     <div style="padding:25px 0">
         <swiper-container class="mySwiper" navigation="true">
-            <swiper-slide><video src=""></video></swiper-slide>
+            <swiper-slide><video src="images/video-1.mp4" controls></video></swiper-slide>
             <swiper-slide><img src="images/pic-1.jpg" alt="img1"></swiper-slide>
             <swiper-slide><img src="images/pic-2.jpg" alt="img2"></swiper-slide>
             <swiper-slide><img src="images/pic-3.jpg" alt="img3"></swiper-slide>

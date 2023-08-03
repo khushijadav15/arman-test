@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+<?php include '../Database/connect.php'; ?>
+
     <?php include './import/head.php'; ?>
 </head>
 
@@ -82,7 +84,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">All Slider</h4>
-                            <a class="btn btn-primary" style="color : #fff;">Add</a>
+                            <a href="property_insert.php" class="btn btn-primary" style="color : #fff;">Add</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -97,70 +99,28 @@
                                             <th>Operation</th>
                                         </tr>
                                     </thead>
+                                    <?php
+            $sql = "SELECT * FROM tbl_properties_cards";
+            $result = $con->query($sql);
+            $data = array();
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $data[] = $row;
+                }
+            }
+            ?>
                                     <tbody>
+                                    <?php foreach ($data as $item) { ?>
                                         <tr>
-                                            <th>1</th>
-                                            <td>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">Upload</span>
-                                                    </div>
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input">
-                                                        <label class="custom-file-label">Choose file</label>
-                                                    </div>
-                                                </div>
+                                            <th><?php echo $item['id'] ;?></th>
+                                            <td><?php echo $item['image'] ;?></td>
+                                            <td><?php echo $item['name'] ;?></td>
+                                            <td><?php echo $item['area'] ;?></td>
+                                            <td><?php echo $item['price'] ;?></td>
+                                            <td> <a href="property_delete.php?file_id=<?php echo $item['id'] ;?>"><span class="badge badge-danger">Delete</span></a>
                                             </td>
-                                            <td>Name</td>
-                                            <td>Area</td>
-                                            <td>Price</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a
-                                                    href=""><span class="badge badge-danger">Delete</span></a>
-                                            </td>
-
                                         </tr>
-                                        <tr>
-                                            <th>2</th>
-                                            <td>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">Upload</span>
-                                                    </div>
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input">
-                                                        <label class="custom-file-label">Choose file</label>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Name</td>
-                                            <td>Area</td>
-                                            <td>Price</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a
-                                                    href=""><span class="badge badge-danger">Delete</span></a>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <th>3</th>
-                                            <td>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">Upload</span>
-                                                    </div>
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input">
-                                                        <label class="custom-file-label">Choose file</label>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Name</td>
-                                            <td>Area</td>
-                                            <td>Price</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a
-                                                    href=""><span class="badge badge-danger">Delete</span></a>
-                                            </td>
-
-                                        </tr>
+                                    <?php } ?> 
                                     </tbody>
                                 </table>
                             </div>

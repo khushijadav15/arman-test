@@ -1,42 +1,42 @@
 <?php include '../Database/connect.php'; ?>
 <?php
 session_start();
-$login_status_error="";
+$login_status_error = "";
 // Check if the user is already logged in
 if (isset($_SESSION['user_id'])) {
-  // User is already logged in, redirect to the home page or dashboard
-  header('Location: index.php');
-  exit();   
+    // User is already logged in, redirect to the home page or dashboard
+    header('Location: index.php');
+    exit();
 }
 
 // Check if the form is submitted
 if (isset($_POST['login'])) {
 
-  // Get the submitted username and password
-  $username = mysqli_real_escape_string($con,$_POST['username']);
-  $password = mysqli_real_escape_string($con,$_POST['password']);
+    // Get the submitted username and password
+    $username = mysqli_real_escape_string($con, $_POST['username']);
+    $password = mysqli_real_escape_string($con, $_POST['password']);
 
-  // Prepare and execute the SQL statement
-  $cmd = $con->prepare("SELECT id as user_id,password FROM tbl_admin_user WHERE username = ? AND password = ? ");
-  $cmd->bind_param("ss", $username, $password);
-  $cmd->execute();
-  $ex = $cmd->get_result();
+    // Prepare and execute the SQL statement
+    $cmd = $con->prepare("SELECT id as user_id,password FROM tbl_admin_user WHERE username = ? AND password = ? ");
+    $cmd->bind_param("ss", $username, $password);
+    $cmd->execute();
+    $ex = $cmd->get_result();
 
-  if ($ex->num_rows == 1) {
+    if ($ex->num_rows == 1) {
 
-    $row = mysqli_fetch_array($ex);
+        $row = mysqli_fetch_array($ex);
 
-    $user_id = $row['user_id'];
-    $_SESSION['user_id'] = $user_id;
-    $login_status_error="";
-    
-    header('Location: index.php');
-  } else{
-    $login_status_error= " Invalid login or password";
-  }
+        $user_id = $row['user_id'];
+        $_SESSION['user_id'] = $user_id;
+        $login_status_error = "";
+
+        header('Location: index.php');
+    } else {
+        $login_status_error = " Invalid login or password";
+    }
 
 }
-  
+
 ?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
@@ -58,19 +58,24 @@ if (isset($_POST['login'])) {
                                     <form method="POST" action="login.php">
                                         <div class="form-group">
                                             <label><strong>Username</strong></label>
-                                            <input type="text" class="form-control" placeholder="9999999999" name="username">
+                                            <input type="text" class="form-control" placeholder="9999999999"
+                                                name="username">
                                         </div>
                                         <div class="form-group">
                                             <label><strong>Password</strong></label>
-                                            <input type="password" class="form-control" placeholder="******" name="password">
-                                            <span style="color : red;"><?php echo $login_status_error; ?></span>
+                                            <input type="password" class="form-control" placeholder="******"
+                                                name="password">
+                                            <span style="color : red;">
+                                                <?php echo $login_status_error; ?>
+                                            </span>
                                         </div>
-                                        
+
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary btn-block" name="login">Login</button>
+                                            <button type="submit" class="btn btn-primary btn-block"
+                                                name="login">Login</button>
                                         </div>
                                     </form>
-                                    
+
                                 </div>
                             </div>
                         </div>

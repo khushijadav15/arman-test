@@ -98,7 +98,17 @@
                                     <tbody>
                                         <tr>
                                             <th>1</th>
-                                            <td>Image</td>
+                                            <td>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Upload</span>
+                                                    </div>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input">
+                                                        <label class="custom-file-label">Choose file</label>
+                                                    </div>
+                                                </div>
+                                            </td>
                                             <td>Description</td>
                                             <td><a href=""><span class="badge badge-success">Update</span> </a> <a
                                                     href=""><span class="badge badge-danger">Delete</span></a>

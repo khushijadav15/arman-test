@@ -81,7 +81,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">All Slider</h4>
+                            <h4 class="card-title">All Data</h4>
                             <a class="btn btn-primary" style="color : #fff;">Add</a>
                         </div>
                         <div class="card-body">
@@ -90,31 +90,35 @@
                                     <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th> Slide Name</th>
-                                            <th>Action</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Message</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <th>1</th>
-                                            <td>Kolor Tea Shirt For Man</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a href=""><span class="badge badge-danger">Delete</span></a>
-                                            </td>
-                                            
+                                            <td>Name Is here</td>
+                                            <td>Email Arrives Here</td>
+                                            <td>Message Arrives Here</td>
                                         </tr>
                                         <tr>
                                             <th>2</th>
-                                            <td>Kolor Tea Shirt For Women</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a href=""><span class="badge badge-danger">Delete</span></a>
-                                            </td>
-                                          
+                                            <td>Name Is here</td>
+                                            <td>Email Arrives Here</td>
+                                            <td>Message Arrives Here</td>
                                         </tr>
                                         <tr>
                                             <th>3</th>
-                                            <td>Blue Backpack For Baby</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a href=""><span class="badge badge-danger">Delete</span></a>
-                                            </td>
-                                           
+                                            <td>Name Is here</td>
+                                            <td>Email Arrives Here</td>
+                                            <td>Message Arrives Here</td>
+                                        </tr>
+                                        <tr>
+                                            <th>4</th>
+                                            <td>Name Is here</td>
+                                            <td>Email Arrives Here</td>
+                                            <td>Message Arrives Here</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -130,7 +134,7 @@
         ***********************************-->
 
 
-        
+
 
         <!--**********************************
            Support ticket button start

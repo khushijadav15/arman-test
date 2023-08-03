@@ -1,4 +1,6 @@
+<?php include 'Database/connect.php'; ?>
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -24,228 +26,253 @@
 
     <div id="home" style="padding:25px 0">
         <h2 class="heading">Our Creative Works</h2>
-        <swiper-container class="mySwiper" navigation="true">
-            <swiper-slide><video src="images/video-1.mp4" controls></video></swiper-slide>
-            <swiper-slide><img src="images/pic-1.jpg" alt="img1"></swiper-slide>
-            <swiper-slide><img src="images/pic-2.jpg" alt="img2"></swiper-slide>
-            <swiper-slide><img src="images/pic-3.jpg" alt="img3"></swiper-slide>
-        </swiper-container>
-    </div>
+        <div style="padding:25px 0">
 
-    <div id="about" style="padding:25px 0">
-        <section class="about-us">
-            <div class="about">
-                <img src="images/pic-4.jpg" class="pic">
-                <div class="text">
-                    <h2>About Us</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita natus ad sed harum itaque
-                        ullam
-                        enim quas, veniam accusantium, quia animi id eos adipisci iusto molestias asperiores explicabo
-                        cum
-                        vero atque amet corporis! Soluta illum facere consequuntur magni. Ullam dolorem repudiandae
-                        cumque
-                        voluptate consequatur consectetur, eos provident necessitatibus reiciendis corrupti!</p>
-                    <div class="data">
-                        <a href="#" class="about-btn">Know More</a>
+            <?php
+            $sql = "SELECT * FROM tbl_slider";
+            $result = $con->query($sql);
+            $data = array();
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $data[] = $row;
+                }
+            }
+            ?>
+            <swiper-container class="mySwiper" navigation="true">
+                <?php foreach ($data as $item) { ?>
+                    <?php if ($item['file_type'] == 'image') { ?>
+                        <swiper-slide><img src="images/<?php echo $item['file_name']; ?>" alt="slider_content"></swiper-slide>
+                    <?php } else { ?>
+                        <swiper-slide><video src="images/<?php echo $item['file_name']; ?>?>" controls></video></swiper-slide>
+                    <?php }
+                } ?>
+            </swiper-container>
+        </div>
+
+        <div id="about" style="padding:25px 0">
+            <section class="about-us">
+                <div class="about">
+
+                    <?php
+                    $sql = "SELECT * FROM tbl_about_us";
+                    $result = $con->query($sql);
+                    $data = array();
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $data[] = $row;
+                        }
+                    }
+                    ?>
+
+                    <?php foreach ($data as $item) { ?>
+                        <img src="images/<?php echo $item['image']; ?>" class="pic">
+                        <div class="text">
+                            <h2>About Us</h2>
+                            <p>
+                                <?php echo $item['description']; ?>
+                            </p>
+                            <div class="data">
+                                <a href="#" class="about-btn">Know More</a>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </section>
+        </div>
+
+        <div id="property" style="padding:25px 0">
+            <h2 class="heading">Property Cards</h2>
+            <div class="head-card">
+                <div class="card">
+                    <img src="images/pic-2.jpg" alt="Property Image" style="width:100%">
+                    <div class="container">
+                        <h2><b>Property Name</b></h2>
+                        <p>Property Area</p>
+                        <p>Pricing</p>
+                        <i class="fa fa-home"></i>
+                        <i class="fa fa-clock"></i>
+                        <i class="fa fa-car"></i><br>
+                        <button class="about-btn">Know More</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/pic-2.jpg" alt="Property Image" style="width:100%">
+                    <div class="container">
+                        <h2><b>Property Name</b></h2>
+                        <p>Property Area</p>
+                        <p>Pricing</p>
+                        <i class="fa fa-home"></i>
+                        <i class="fa fa-clock"></i>
+                        <i class="fa fa-car"></i>
+                        <br>
+                        <button class="about-btn">Know More</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/pic-2.jpg" alt="Property Image" style="width:100%">
+                    <div class="container">
+                        <h2><b>Property Name</b></h2>
+                        <p>Property Area</p>
+                        <p>Pricing</p>
+                        <i class="fa fa-home"></i>
+                        <i class="fa fa-clock"></i>
+                        <i class="fa fa-car"></i><br>
+                        <button class="about-btn">Know More</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/pic-2.jpg" alt="Property Image" style="width:100%">
+                    <div class="container">
+                        <h2><b>Property Name</b></h2>
+                        <p>Property Area</p>
+                        <p>Pricing</p>
+                        <i class="fa fa-home"></i>
+                        <i class="fa fa-clock"></i>
+                        <i class="fa fa-car"></i>
+                        <br>
+                        <button class="about-btn">Know More</button>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
 
-    <div id="property" style="padding:25px 0">
-        <h2 class="heading">Property Cards</h2>
-        <div class="head-card">
-            <div class="card">
-                <img src="images/pic-2.jpg" alt="Property Image" style="width:100%">
-                <div class="container">
-                    <h2><b>Property Name</b></h2>
-                    <p>Property Area</p>
-                    <p>Pricing</p>
-                    <i class="fa fa-home"></i>
-                    <i class="fa fa-clock"></i>
-                    <i class="fa fa-car"></i><br>
-                    <button class="about-btn">Know More</button>
+
+
+        <div style="padding:25px 0">
+            <div class="head-card">
+                <div class="card">
+                    <img src="images/pic-2.jpg" alt="Property Image" style="width:100%">
+                    <div class="container">
+                        <h2><b>Property Name</b></h2>
+                        <p>Property Area</p>
+                        <p>Pricing</p>
+                        <i class="fa fa-home"></i>
+                        <i class="fa fa-clock"></i>
+                        <i class="fa fa-car"></i><br>
+                        <button class="about-btn">Know More</button>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img src="images/pic-2.jpg" alt="Property Image" style="width:100%">
-                <div class="container">
-                    <h2><b>Property Name</b></h2>
-                    <p>Property Area</p>
-                    <p>Pricing</p>
-                    <i class="fa fa-home"></i>
-                    <i class="fa fa-clock"></i>
-                    <i class="fa fa-car"></i>
-                    <br>
-                    <button class="about-btn">Know More</button>
+                <div class="card">
+                    <img src="images/pic-2.jpg" alt="Property Image" style="width:100%">
+                    <div class="container">
+                        <h2><b>Property Name</b></h2>
+                        <p>Property Area</p>
+                        <p>Pricing</p>
+                        <i class="fa fa-home"></i>
+                        <i class="fa fa-clock"></i>
+                        <i class="fa fa-car"></i>
+                        <br>
+                        <button class="about-btn">Know More</button>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img src="images/pic-2.jpg" alt="Property Image" style="width:100%">
-                <div class="container">
-                    <h2><b>Property Name</b></h2>
-                    <p>Property Area</p>
-                    <p>Pricing</p>
-                    <i class="fa fa-home"></i>
-                    <i class="fa fa-clock"></i>
-                    <i class="fa fa-car"></i><br>
-                    <button class="about-btn">Know More</button>
+                <div class="card">
+                    <img src="images/pic-2.jpg" alt="Property Image" style="width:100%">
+                    <div class="container">
+                        <h2><b>Property Name</b></h2>
+                        <p>Property Area</p>
+                        <p>Pricing</p>
+                        <i class="fa fa-home"></i>
+                        <i class="fa fa-clock"></i>
+                        <i class="fa fa-car"></i><br>
+                        <button class="about-btn">Know More</button>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img src="images/pic-2.jpg" alt="Property Image" style="width:100%">
-                <div class="container">
-                    <h2><b>Property Name</b></h2>
-                    <p>Property Area</p>
-                    <p>Pricing</p>
-                    <i class="fa fa-home"></i>
-                    <i class="fa fa-clock"></i>
-                    <i class="fa fa-car"></i>
-                    <br>
-                    <button class="about-btn">Know More</button>
+                <div class="card">
+                    <img src="images/pic-2.jpg" alt="Property Image" style="width:100%">
+                    <div class="container">
+                        <h2><b>Property Name</b></h2>
+                        <p>Property Area</p>
+                        <p>Pricing</p>
+                        <i class="fa fa-home"></i>
+                        <i class="fa fa-clock"></i>
+                        <i class="fa fa-car"></i>
+                        <br>
+                        <button class="about-btn">Know More</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
+        <div id="contact" style="padding:25px 0">
+            <h2 class="heading">Contact us</h2>
+            <section class="contact-us" id="contact-section">
+                <form id="contact" action="" method="post">
 
-    <div style="padding:25px 0">
-        <div class="head-card">
-            <div class="card">
-                <img src="images/pic-2.jpg" alt="Property Image" style="width:100%">
-                <div class="container">
-                    <h2><b>Property Name</b></h2>
-                    <p>Property Area</p>
-                    <p>Pricing</p>
-                    <i class="fa fa-home"></i>
-                    <i class="fa fa-clock"></i>
-                    <i class="fa fa-car"></i><br>
-                    <button class="about-btn">Know More</button>
-                </div>
-            </div>
-            <div class="card">
-                <img src="images/pic-2.jpg" alt="Property Image" style="width:100%">
-                <div class="container">
-                    <h2><b>Property Name</b></h2>
-                    <p>Property Area</p>
-                    <p>Pricing</p>
-                    <i class="fa fa-home"></i>
-                    <i class="fa fa-clock"></i>
-                    <i class="fa fa-car"></i>
-                    <br>
-                    <button class="about-btn">Know More</button>
-                </div>
-            </div>
-            <div class="card">
-                <img src="images/pic-2.jpg" alt="Property Image" style="width:100%">
-                <div class="container">
-                    <h2><b>Property Name</b></h2>
-                    <p>Property Area</p>
-                    <p>Pricing</p>
-                    <i class="fa fa-home"></i>
-                    <i class="fa fa-clock"></i>
-                    <i class="fa fa-car"></i><br>
-                    <button class="about-btn">Know More</button>
-                </div>
-            </div>
-            <div class="card">
-                <img src="images/pic-2.jpg" alt="Property Image" style="width:100%">
-                <div class="container">
-                    <h2><b>Property Name</b></h2>
-                    <p>Property Area</p>
-                    <p>Pricing</p>
-                    <i class="fa fa-home"></i>
-                    <i class="fa fa-clock"></i>
-                    <i class="fa fa-car"></i>
-                    <br>
-                    <button class="about-btn">Know More</button>
-                </div>
-            </div>
+                    <div class="inputField">
+                        <input type="name" name="name" id="name" placeholder="Your name" autocomplete="on" required>
+                        <span class="valid_info_name"></span>
+                    </div>
+
+                    <div class="inputField">
+                        <input type="Email" name="email" id="email" placeholder="Your email" required="" />
+                        <span class="valid_info_email"></span>
+                    </div>
+
+                    <div class="inputField">
+                        <textarea name="message" id="message" placeholder="Your message"></textarea>
+                        <span class="valid_info_message"></span>
+                    </div>
+
+                    <div class="inputField btn">
+                        <button type="submit" id="form-submit">Send a message</button>
+                    </div>
+
+                </form>
+            </section>
         </div>
-    </div>
 
-
-    <div id="contact" style="padding:25px 0">
-        <h2 class="heading">Contact us</h2>
-        <section class="contact-us" id="contact-section">
-            <form id="contact" action="" method="post">
-
-                <div class="inputField">
-                    <input type="name" name="name" id="name" placeholder="Your name" autocomplete="on" required>
-                    <span class="valid_info_name"></span>
+        <div style="padding:25px 0">
+            <footer class="footer">
+                <div class="footer__addr">
+                    <h5 class="footer__logo">
+                        <img src="images/logo.jpg" alt="logo">
+                    </h5>
                 </div>
+                <ul class="footer__nav">
+                    <li class="nav__item">
+                        <h2 class="nav__title">Important Links</h2>
 
-                <div class="inputField">
-                    <input type="Email" name="email" id="email" placeholder="Your email" required="" />
-                    <span class="valid_info_email"></span>
-                </div>
+                        <ul class="nav__ul">
+                            <li>
+                                <a href="#">Home</a>
+                            </li>
+                            <li>
+                                <a href="#">Property</a>
+                            </li>
+                            <li>
+                                <a href="#">About Us</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact Us</a>
+                            </li>
+                        </ul>
+                    </li>
 
-                <div class="inputField">
-                    <textarea name="message" id="message" placeholder="Your message"></textarea>
-                    <span class="valid_info_message"></span>
-                </div>
+                    <li class="nav__item">
+                        <h2 class="nav__title">Reach Us</h2>
 
-                <div class="inputField btn">
-                    <button type="submit" id="form-submit">Send a message</button>
-                </div>
+                        <ul class="nav__ul">
+                            <li>
+                                <a href="callto:9313852343">9313852343</a>
+                            </li>
 
-            </form>
-        </section>
-    </div>
+                            <li>
+                                <a href="mailto:armanvaraiya2484@gmail.com">armanvaraiya2484@gmail.com</a>
+                            </li>
 
-    <div style="padding:25px 0">
-        <footer class="footer">
-            <div class="footer__addr">
-                <h5 class="footer__logo">
-                    <img src="images/logo.jpg" alt="logo">
-                </h5>
-            </div>
-            <ul class="footer__nav">
-                <li class="nav__item">
-                    <h2 class="nav__title">Important Links</h2>
-
-                    <ul class="nav__ul">
-                        <li>
-                            <a href="#">Home</a>
-                        </li>
-                        <li>
-                            <a href="#">Property</a>
-                        </li>
-                        <li>
-                            <a href="#">About Us</a>
-                        </li>
-                        <li>
-                            <a href="#">Contact Us</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="nav__item">
-                    <h2 class="nav__title">Reach Us</h2>
-
-                    <ul class="nav__ul">
-                        <li>
-                            <a href="callto:9313852343">9313852343</a>
-                        </li>
-
-                        <li>
-                            <a href="mailto:armanvaraiya2484@gmail.com">armanvaraiya2484@gmail.com</a>
-                        </li>
-
-                        <li>
-                            <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo odio quo
-                                quos. Pariatur velit accusamus sequi sapiente, architecto voluptate.</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </footer>
-    </div>
+                            <li>
+                                <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo odio quo
+                                    quos. Pariatur velit accusamus sequi sapiente, architecto voluptate.</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </footer>
+        </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
 
 
 </body>

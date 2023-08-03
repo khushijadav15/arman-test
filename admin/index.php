@@ -71,7 +71,7 @@
         <!--**********************************
             Sidebar end
         ***********************************-->
-
+    
         <!--**********************************
             Content body start
         ***********************************-->
@@ -82,7 +82,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">All Slider</h4>
-                            <a class="btn btn-primary" style="color : #fff;">Add</a>
+                            <a href="slider_insert.php" class="btn btn-primary" style="color : #fff;">Add</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

@@ -78,51 +78,41 @@
         <div class="content-body">
             <!-- row -->
             <div class="container-fluid">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">All Slider</h4>
-                            <a class="btn btn-primary" style="color : #fff;">Add</a>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-responsive-sm">
-                                    <thead>
-                                        <tr>
-                                            <th>Id</th>
-                                            <th> Slide Name</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th>1</th>
-                                            <td>Kolor Tea Shirt For Man</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a href=""><span class="badge badge-danger">Delete</span></a>
-                                            </td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th>2</th>
-                                            <td>Kolor Tea Shirt For Women</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a href=""><span class="badge badge-danger">Delete</span></a>
-                                            </td>
-                                          
-                                        </tr>
-                                        <tr>
-                                            <th>3</th>
-                                            <td>Blue Backpack For Baby</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a href=""><span class="badge badge-danger">Delete</span></a>
-                                            </td>
-                                           
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Insert Slider</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="basic-form custom_file_input">
+                            <form action="#">
+                                <div class="">
+                                    <h4 class="card-title">Select File</h4>
+                                </div>
+                                <!-- <div class="input-group mb-3"> -->
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option>Image</option>
+                                        <option>Video</option>
+                                    </select>
+                                </div>
+                                <!-- </div> -->
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input">
+                                        <label class="custom-file-label">Choose file</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <!--**********************************

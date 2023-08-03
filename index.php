@@ -1,4 +1,6 @@
+<?php include 'Database/connect.php'; ?>
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -18,11 +20,26 @@
     </div>
 
     <div style="padding:25px 0">
+
+     <?php
+    
+    $sql = "SELECT * FROM tbl_slider";
+    $result = $con->query($sql);
+    $data = array();
+    if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+    $data[] = $row;
+    }
+    }
+    ?>
         <swiper-container class="mySwiper" navigation="true">
-            <swiper-slide><video src="images/video-1.mp4" controls></video></swiper-slide>
-            <swiper-slide><img src="images/pic-1.jpg" alt="img1"></swiper-slide>
-            <swiper-slide><img src="images/pic-2.jpg" alt="img2"></swiper-slide>
-            <swiper-slide><img src="images/pic-3.jpg" alt="img3"></swiper-slide>
+        <?php foreach ($data as $item) { ?>
+        <?php if ($item['file_type']== 'image' ) {?>
+            <swiper-slide><img src="images/<?php echo $item['file_name'];?>" alt="slider_content"></swiper-slide>      
+        <?php  } else { ?>
+            <swiper-slide><video src="images/<?php echo $item['file_name'];?>?>" controls></video></swiper-slide>
+        <?php }
+        } ?>
         </swiper-container>
     </div>
 

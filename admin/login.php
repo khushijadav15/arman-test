@@ -85,9 +85,7 @@ if (isset($_POST['login'])) {
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-    <script src="./vendor/global/global.min.js"></script>
-    <script src="./js/quixnav-init.js"></script>
-    <script src="./js/custom.min.js"></script>
+    <?php include "./import/script.php"; ?>
 
 </body>
 

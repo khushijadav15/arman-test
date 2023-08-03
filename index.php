@@ -21,8 +21,7 @@
 
     <div style="padding:25px 0">
 
-     <?php
-    
+    <?php
     $sql = "SELECT * FROM tbl_slider";
     $result = $con->query($sql);
     $data = array();
@@ -46,20 +45,28 @@
     <div style="padding:25px 0">
         <section class="about-us">
             <div class="about">
-                <img src="images/pic-4.jpg" class="pic">
+            <?php
+    $sql = "SELECT * FROM tbl_about_us";
+    $result = $con->query($sql);
+    $data = array();
+    if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+    $data[] = $row;
+    }
+    }
+    ?>
+
+
+<?php foreach ($data as $item) { ?>
+                <img src="images/<?php echo $item['image'];?>" class="pic">
                 <div class="text">
                     <h2>About Us</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita natus ad sed harum itaque
-                        ullam
-                        enim quas, veniam accusantium, quia animi id eos adipisci iusto molestias asperiores explicabo
-                        cum
-                        vero atque amet corporis! Soluta illum facere consequuntur magni. Ullam dolorem repudiandae
-                        cumque
-                        voluptate consequatur consectetur, eos provident necessitatibus reiciendis corrupti!</p>
+                    <p><?php echo $item['description'];?></p>
                     <div class="data">
                         <a href="#" class="about-btn">Know More</a>
                     </div>
                 </div>
+                <?php }?>
             </div>
         </section>
     </div>

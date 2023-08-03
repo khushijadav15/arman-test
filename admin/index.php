@@ -13,7 +13,7 @@
     <div id="main-wrapper">
 
         <!--**********************************
-            Nav header start
+             Nav header start
         ***********************************-->
         <div class="nav-header">
             <a href="index.php" class="brand-logo">
@@ -27,7 +27,7 @@
             </div>
         </div>
         <!--**********************************
-            Nav header end
+                 Nav header end
         ***********************************-->
 
         <!--**********************************
@@ -91,6 +91,7 @@
                                         <tr>
                                             <th>Id</th>
                                             <th> Slide Name</th>
+                                            <th> Type</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -98,6 +99,7 @@
                                         <tr>
                                             <th>1</th>
                                             <td>Kolor Tea Shirt For Man</td>
+                                            <td>Image</td>
                                             <td><a href=""><span class="badge badge-success">Update</span> </a> <a href=""><span class="badge badge-danger">Delete</span></a>
                                             </td>
                                             
@@ -105,6 +107,7 @@
                                         <tr>
                                             <th>2</th>
                                             <td>Kolor Tea Shirt For Women</td>
+                                            <td>Image</td>
                                             <td><a href=""><span class="badge badge-success">Update</span> </a> <a href=""><span class="badge badge-danger">Delete</span></a>
                                             </td>
                                           
@@ -112,6 +115,7 @@
                                         <tr>
                                             <th>3</th>
                                             <td>Blue Backpack For Baby</td>
+                                            <td>Image</td>
                                             <td><a href=""><span class="badge badge-success">Update</span> </a> <a href=""><span class="badge badge-danger">Delete</span></a>
                                             </td>
                                            

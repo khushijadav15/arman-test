@@ -1,3 +1,37 @@
+<?php include '../Database/connect.php'; ?>
+
+<?php
+include '../function/function.php';
+
+if (isset($_POST['submit'])) {
+
+    //Fetch data from HTML Form
+    $file_type = mysqli_real_escape_string($con, $_POST['file_type']);
+    $file = $_FILES['file']; // Uncomment this line
+
+    // print_r($file); 
+
+    $target_directory = "../uploade/";
+    $file_upload_status = upload_single_file_new($file, $target_directory);
+
+    if ($file_upload_status['status'] == 200) {
+        $file_name = $file_upload_status['message'];
+        $stmt = $con->prepare("INSERT INTO `tbl_slider`(file_name, file_type) VALUES (?, ?)");
+        $stmt->bind_param("ss", $file_name, $file_type);
+        $result = $stmt->execute();
+
+        if ($result) {
+            echo "<script> alert('insert successfully')</script>";
+        } else {
+            echo "<script> alert('insert failed')</script>";
+        }
+    } else {
+        echo "error";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,15 +118,15 @@
                     </div>
                     <div class="card-body">
                         <div class="basic-form custom_file_input">
-                            <form action="#">
+                            <form method="POST" enctype="multipart/form-data">
                                 <div class="">
                                     <h4 class="card-title">Select File</h4>
                                 </div>
                                 <!-- <div class="input-group mb-3"> -->
                                 <div class="form-group">
-                                    <select class="form-control">
-                                        <option>Image</option>
-                                        <option>Video</option>
+                                    <select class="form-control" name="file_type">
+                                        <option value="image">Image</option>
+                                        <option value="video">Video</option>
                                     </select>
                                 </div>
                                 <!-- </div> -->
@@ -101,13 +135,14 @@
                                         <span class="input-group-text">Upload</span>
                                     </div>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input">
+                                        <input type="file" class="custom-file-input" name="file">
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
                                 </div>
 
+
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                                    <button type="submit" class="btn btn-primary mb-2" name="submit">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -117,15 +152,6 @@
         </div>
         <!--**********************************
             Content body end
-        ***********************************-->
-
-
-        <!--**********************************
-           Support ticket button start
-        ***********************************-->
-
-        <!--**********************************
-           Support ticket button end
         ***********************************-->
 
 

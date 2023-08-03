@@ -82,7 +82,6 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">All Data</h4>
-                            <a class="btn btn-primary" style="color : #fff;">Add</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -97,30 +96,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th>1</th>
-                                            <td>Name Is here</td>
-                                            <td>Email Arrives Here</td>
-                                            <td>Message Arrives Here</td>
-                                        </tr>
-                                        <tr>
-                                            <th>2</th>
-                                            <td>Name Is here</td>
-                                            <td>Email Arrives Here</td>
-                                            <td>Message Arrives Here</td>
-                                        </tr>
-                                        <tr>
-                                            <th>3</th>
-                                            <td>Name Is here</td>
-                                            <td>Email Arrives Here</td>
-                                            <td>Message Arrives Here</td>
-                                        </tr>
-                                        <tr>
-                                            <th>4</th>
-                                            <td>Name Is here</td>
-                                            <td>Email Arrives Here</td>
-                                            <td>Message Arrives Here</td>
-                                        </tr>
+
+                                        <?php
+                                        include("../Database/connect.php");
+                                        $show_data = "SELECT * FROM `tbl_form_data`;";
+                                        $show_data_query = mysqli_query($con, $show_data);
+                                        while ($row = mysqli_fetch_assoc($show_data_query)) {
+                                            $id = $row['id'];
+                                            $name = $row['name'];
+                                            $email = $row['email'];
+                                            $mobile_number = $row['mobile_number'];
+                                            $message = $row['message'];
+                                            echo "<tr>
+                                                    <th>$id</th>
+                                                    <td>$name</td>
+                                                    <td>$email</td>
+                                                    <td>$mobile_number</td>
+                                                    <td>$message</td>
+                                                </tr>";
+                                        } ?>
                                     </tbody>
                                 </table>
                             </div>

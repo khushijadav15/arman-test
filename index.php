@@ -122,7 +122,7 @@
         <div id="contact" style="padding:25px 0">
             <h2 class="heading">Contact us</h2>
             <section class="contact-us" id="contact-section">
-                <form id="contact" action="" method="post">
+                <form id="contact" action="form_submit.php" method="post">
 
                     <div class="inputField">
                         <input type="name" name="name" id="name" placeholder="Your name" autocomplete="on" required>
@@ -146,9 +146,8 @@
                     </div>
 
                     <div class="inputField btn">
-                        <button type="submit" id="form-submit">Send a message</button>
+                        <input type="submit">
                     </div>
-
                 </form>
             </section>
         </div>

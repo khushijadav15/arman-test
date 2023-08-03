@@ -9,6 +9,7 @@ if ($result) {
     echo "<script> alert('Delete successfully')</script>";
 } else {
     echo "<script> alert('Delete failed')</script>";
+    header("Location: index.php");
 }
 
 ?>

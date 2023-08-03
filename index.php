@@ -81,38 +81,44 @@
         </div>
 
         <?php
-            $sql = "SELECT * FROM tbl_properties_cards";
-            $result = $con->query($sql);
-            $data = array();
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $data[] = $row;
-                }
+        $sql = "SELECT * FROM tbl_properties_cards";
+        $result = $con->query($sql);
+        $data = array();
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
             }
-            ?>
+        }
+        ?>
         <div id="property" style="padding:25px 0">
             <h2 class="heading">Property Cards</h2>
             <div class="head-card">
-            <?php foreach ($data as $item) { ?>
-                <div class="card">
-                    <img src="images/<?php echo $item['image']; ?>" alt="Property Image" style="width:100%">
-                    <div class="container">
-                        <h2><b><?php echo $item['name']; ?></b></h2>
-                        <p><?php echo $item['area']; ?></p>
-                        <p><?php echo $item['price']; ?></p>
-                        <i class="fa fa-home"></i>
-                        <i class="fa fa-clock"></i>
-                        <i class="fa fa-car"></i><br>
-                        <button class="about-btn">Know More</button>
+                <?php foreach ($data as $item) { ?>
+                    <div class="card">
+                        <img src="images/<?php echo $item['image']; ?>" alt="Property Image" style="width:100%">
+                        <div class="container">
+                            <h2><b>
+                                    <?php echo $item['name']; ?>
+                                </b></h2>
+                            <p>
+                                <?php echo $item['area']; ?>
+                            </p>
+                            <p>
+                                <?php echo $item['price']; ?>
+                            </p>
+                            <i class="fa fa-home"></i>
+                            <i class="fa fa-clock"></i>
+                            <i class="fa fa-car"></i><br>
+                            <button class="about-btn">Know More</button>
+                        </div>
                     </div>
-                </div>
-            <?php } ?>   
+                <?php } ?>
             </div>
         </div>
 
 
 
-       
+
         <div id="contact" style="padding:25px 0">
             <h2 class="heading">Contact us</h2>
             <section class="contact-us" id="contact-section">
@@ -125,6 +131,12 @@
 
                     <div class="inputField">
                         <input type="Email" name="email" id="email" placeholder="Your email" required="" />
+                        <span class="valid_info_email"></span>
+                    </div>
+
+                    <div class="inputField">
+                        <input type="Number" name="mobile_number" id="mobile_number" placeholder="Your Phone Number"
+                            required="" />
                         <span class="valid_info_email"></span>
                     </div>
 

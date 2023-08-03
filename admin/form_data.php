@@ -92,6 +92,7 @@
                                             <th>Id</th>
                                             <th>Name</th>
                                             <th>Email</th>
+                                            <th>Phone Number</th>
                                             <th>Message</th>
                                         </tr>
                                     </thead>

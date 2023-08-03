@@ -21,6 +21,7 @@
             <a href="#property">Property</a>
             <a href="#about">About Us</a>
             <a href="#contact">Contact Us</a>
+            <a href="admin/login.php">Admin</a>
         </div>
     </div>
 

@@ -44,11 +44,10 @@
                         </div>
 
                         <ul class="navbar-nav header-right">
-
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
                                     <i class="mdi mdi-account"></i>
-                                    <span>arman</span>
+                                    <span>Arman</span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a href="logout.php" class="dropdown-item">

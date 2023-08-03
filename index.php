@@ -80,8 +80,6 @@
             </section>
         </div>
 
-
-
         <?php
             $sql = "SELECT * FROM tbl_properties_cards";
             $result = $con->query($sql);

@@ -32,19 +32,14 @@
     }
     }
     ?>
-
         <swiper-container class="mySwiper" navigation="true">
-
         <?php foreach ($data as $item) { ?>
-        <?php if ($item['type']== 1 ) {?>
-            <swiper-slide><img src="images/<?php echo $item['file_name'];?>.<?php echo $item['file_type'];?>" alt="slider_content"></swiper-slide>      
+        <?php if ($item['file_type']== 'image' ) {?>
+            <swiper-slide><img src="images/<?php echo $item['file_name'];?>" alt="slider_content"></swiper-slide>      
         <?php  } else { ?>
-            <swiper-slide><video src="images/<?php echo $item['file_name'];?>.<?php echo $item['file_type'];?>" controls></video></swiper-slide>
+            <swiper-slide><video src="images/<?php echo $item['file_name'];?>?>" controls></video></swiper-slide>
         <?php }
         } ?>
-
-           
-           
         </swiper-container>
     </div>
 

@@ -1,3 +1,33 @@
+<?php include "../Database/connect.php"; ?>
+<?php include "../function/function.php"; ?>
+<?php
+if (isset($_POST['update'])) {
+    $msg = mysqli_real_escape_string($con, $_POST['msg']);
+    $file = $_FILES['file'];
+
+    // print_r($file); 
+
+    $target_directory = "../uploade/";
+    $file_upload_status = upload_single_file_new($file, $target_directory);
+
+    if ($file_upload_status['status'] == 200) {
+        $file_name = $file_upload_status['message'];
+        $stmt = $con->prepare("UPDATE `tbl_about_us` SET `image` = ?, `description` = ? WHERE `id` = 1");
+        $stmt->bind_param("ss", $file_name, $msg);
+        $result = $stmt->execute();
+
+        if ($result) {
+            echo "<script> alert('update successfully')</script>";
+        } else {
+            echo "<script> alert('update failed')</script>";
+        }
+    } else {
+        echo "error";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,49 +105,52 @@
         <!--**********************************
             Content body start
         ***********************************-->
+
         <div class="content-body">
             <!-- row -->
             <div class="container-fluid">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">All Slider</h4>
-                            <a class="btn btn-primary" style="color : #fff;">Add</a>
+                            <h4 class="card-title">About Us</h4>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-responsive-sm">
-                                    <thead>
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Image</th>
-                                            <th>Description</th>
-                                            <th>Operation</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th>1</th>
-                                            <td>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">Upload</span>
-                                                    </div>
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input">
-                                                        <label class="custom-file-label">Choose file</label>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Description</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a
-                                                    href=""><span class="badge badge-danger">Delete</span></a>
-                                            </td>
-
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="basic-form">
+                                <form method="POST" enctype="multipart/form-data">
+                                    <div class="">
+                                        <h4 class="card-title">Textarea</h4>
+                                    </div>
+                                    <?php
+                                    $id = 1;
+                                    $cmd = $con->prepare("SELECT * FROM `tbl_about_us` where id = ?");
+                                    $cmd->bind_param("i", $id);
+                                    $cmd->execute();
+                                    $result = $cmd->get_result();
+                                    while ($row = $result->fetch_assoc()) {
+                                    
+                                    ?>
+                                    <div class="form-group">
+                                        <textarea class="form-control" rows="6" id="msg" name="msg"><?php echo $row['description']; ?></textarea>
+                                    </div>
+                                    <div class="">
+                                        <h4 class="card-title">Image</h4>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Upload</span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="file">
+                                            <label class="custom-file-label" value="<?php echo $row['image']; ?>">Choose file</label>
+                                        </div>
+                                    </div>
+                                    <?php } ?>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary mb-2" name="update">Update</button>
+                                    </div>
+                                </form>
                             </div>
+
                         </div>
                     </div>
                 </div>

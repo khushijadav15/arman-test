@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+<?php include '../Database/connect.php'; ?>
+
     <?php include './import/head.php'; ?>
 </head>
 
@@ -86,6 +88,16 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
+                            <?php
+            $sql = "SELECT * FROM tbl_slider";
+            $result = $con->query($sql);
+            $data = array();
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $data[] = $row;
+                }
+            }
+            ?>
                                 <table class="table table-bordered table-responsive-sm">
                                     <thead>
                                         <tr>
@@ -96,30 +108,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php foreach ($data as $item) { ?>
                                         <tr>
-                                            <th>1</th>
-                                            <td>Kolor Tea Shirt For Man</td>
-                                            <td>Image</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a href=""><span class="badge badge-danger">Delete</span></a>
+                                            <th><?php echo $item['id'] ;?></th>
+                                            <td><?php echo $item['file_name'] ;?></td>
+                                            <td><?php echo $item['file_type'] ;?></td>
+                                            <td><a href=""><span class="badge badge-danger">Delete</span></a>
                                             </td>
                                             
                                         </tr>
-                                        <tr>
-                                            <th>2</th>
-                                            <td>Kolor Tea Shirt For Women</td>
-                                            <td>Image</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a href=""><span class="badge badge-danger">Delete</span></a>
-                                            </td>
-                                          
-                                        </tr>
-                                        <tr>
-                                            <th>3</th>
-                                            <td>Blue Backpack For Baby</td>
-                                            <td>Image</td>
-                                            <td><a href=""><span class="badge badge-success">Update</span> </a> <a href=""><span class="badge badge-danger">Delete</span></a>
-                                            </td>
-                                           
-                                        </tr>
+                                    <?php } ?> 
                                     </tbody>
                                 </table>
                             </div>
